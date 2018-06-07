@@ -2,11 +2,13 @@
   "name": "democal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nguacon90.github.io/democal/",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/react-fontawesome": "0.0.20",
     "bootstrap": "^4.1.1",
+    "gh-pages": "^1.2.0",
     "moment": "^2.22.2",
     "react": "^16.4.0",
     "react-calendar-timeline": "^0.16.3",
@@ -16,6 +18,8 @@
     "reactstrap": "^6.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
