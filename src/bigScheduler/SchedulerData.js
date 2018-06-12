@@ -348,7 +348,9 @@ export default class SchedulerData {
     }
 
     updateEventEnd(event, newEnd) {
+        this._detachEvent(event);
         event.end = newEnd;
+        this._attachEvent(event);
         this._createRenderData();
     }
 
