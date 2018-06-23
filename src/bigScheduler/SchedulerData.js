@@ -118,7 +118,8 @@ export default class SchedulerData {
         this.eventGroups.forEach((item, idx) => {
             if(item.id === eventGroupId)
                 index = idx;
-        })
+        });
+
         if(index !== -1)
             this.eventGroups.splice(index, 1);
     }
@@ -355,6 +356,8 @@ export default class SchedulerData {
     }
 
     moveEvent(event, newSlotId, newSlotName, newStart, newEnd){
+        let newResource = this.getResourceById(newSlotId);
+
         if(this._isBookingEvent(event)) {
             event.resizable = false;
             let cloneEvent = Object.assign({}, event);
@@ -364,6 +367,7 @@ export default class SchedulerData {
             cloneEvent.end = newEnd;
             cloneEvent.start = newStart;
             cloneEvent.removable = true;
+            cloneEvent.bgColor = newResource.color;
             event.movable = false;
             this._attachEvent(cloneEvent);
             this._createRenderData();
@@ -378,6 +382,7 @@ export default class SchedulerData {
         }
         else
             event.resourceId = newSlotId;
+        event.bgColor = newResource.color;
         event.end = newEnd;
         event.start = newStart;
         this._attachEvent(event);
@@ -590,6 +595,7 @@ export default class SchedulerData {
             return {
                 slotId: resource.id,
                 slotName: resource.name,
+                color: resource.color,
                 rowHeight: 0,
                 headerItems: headerEvents,
                 type: resource.type

@@ -33,10 +33,13 @@ class ResourceView extends Component {
         }
 
         let resourceList = renderData.map((item) => {
+            let colorSpan = item.color ? <span style={{backgroundColor: item.color, width: '2rem', height: '1rem',
+                display: 'inline-block', verticalAlign: 'middle', marginRight: '10px', textAlign:'left'}}></span> : '';
             let a = slotClickedFunc != undefined ? <a onClick={() => {
                 slotClickedFunc(schedulerData, item);
             }}>{item.slotName}</a>
-                : <span>{item.slotName}</span>;
+                : <span>{colorSpan}<span>{item.slotName}</span></span>;
+
             let slotItem = (
                 <div style={{width: width}} title={item.slotName} className="overflow-text header2-text">
                     {a}

@@ -3,37 +3,44 @@ const DemoData = {
         {
             id: 'r1',
             name: '30L7-2259',
-            type: 'car'
+            type: 'car',
+            color: '#ff3228'
         },
         {
             id: 'r2',
             name: '30L7-2259',
-            type: 'car'
+            type: 'car',
+            color: '#28baa4'
         },
         {
             id: 'r3',
             name: '29M6-2258',
-            type: 'car'
+            type: 'car',
+            color: '#f336ce'
         },
         {
             id: 'r4',
             name: '30K7-1257',
-            type: 'car'
+            type: 'car',
+            color: '#1522ff'
         },
         {
             id: 'r5',
             name: '30F7-3359',
-            type: 'car'
+            type: 'car',
+            color: '#229405'
         },
         {
             id: 'r6',
             name: '30L9-1159',
-            type: 'car'
+            type: 'car',
+            color: '#fffb2f'
         },
         {
             id: 'r7',
             name: '30L7-3434',
-            type: 'car'
+            type: 'car',
+            color: '#f98415'
         },
         {
             type: 'booking',

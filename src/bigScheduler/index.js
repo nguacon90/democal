@@ -5,7 +5,6 @@ import EventItem from './EventItem'
 import DnDSource from './DnDSource'
 import DnDContext from './DnDContext'
 import ResourceView from './ResourceView'
-import ResourceBookingView from './ResourceBookingView'
 import HeaderView from './HeaderView'
 import BodyView from './BodyView'
 import ResourceEvents from './ResourceEvents'
@@ -174,8 +173,6 @@ class Scheduler extends Component {
                                     {...this.props}
                                     browserScrollbarHeight={browserScrollbarHeight}
                                 />
-
-                                {/*<ResourceBookingView {...this.props} browserScrollbarHeight={browserScrollbarHeight}/>*/}
                             </div>
                         </div>
                     </td>

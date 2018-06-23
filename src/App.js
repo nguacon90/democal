@@ -61,7 +61,8 @@ class App extends Component {
             start: this.state.eventData.start,
             end: this.state.eventData.end,
             resourceId: this.state.eventData.slotId,
-            bgColor: 'purple'
+            bgColor: this.state.eventData.bgColor,
+            resizable: this.state.eventData.resizable
         }
 
         if (type === DnDTypes.RESOURCE) {
@@ -215,6 +216,7 @@ class App extends Component {
     };
 
     newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
+        let resource = schedulerData.getResourceById(slotId);
         let eventData = this.state.eventData;
         eventData.schedulerData = schedulerData;
         eventData.slotId = slotId;
@@ -223,7 +225,9 @@ class App extends Component {
         eventData.end = end;
         eventData.type = type;
         eventData.item = item;
+        eventData.resizable = false;
         eventData.title = '';
+        eventData.bgColor = resource.color;
         let self = this;
         this.setState({
             eventData: eventData
