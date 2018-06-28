@@ -120,7 +120,6 @@ table.resource-table tr, table.scheduler-bg-table tr, table.scheduler-table tr {
 
 table.resource-table th, table.scheduler-table th, table.resource-table td, table.scheduler-bg-table td, table.scheduler-table td{
   border-right: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
 }
 
 table.scheduler-bg-table th {
@@ -240,6 +239,23 @@ table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-chi
   position: absolute;
 }
 
-.split-booking-row {
-  border-top: 5px solid #cecece;
+.split-booking-row td {
+  border-top: 3px solid #ceb98f;
+}
+.scheduler-view .calItemTitle {
+  margin-left: 1rem;
+}
+.scheduler-view .calItemTitle span {
+  display: block;
+  text-align: left;
+}
+.scheduler-view .calItemTitle .dayOfMonth {
+  font-size: 36px;
+  line-height: 32px;
+  color: #333333;
+}
+
+.scheduler-view .calItemTitle .dayOfWeek {
+  font-size: 12px;
+  line-height: 32px;
 }

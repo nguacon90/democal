@@ -4,7 +4,7 @@ import SummaryPos from './SummaryPos'
 export default {
     schedulerWidth: 1000,
     schedulerMaxHeight: 0,
-    tableHeaderHeight: 40,
+    tableHeaderHeight: 80,
 
     agendaResourceTableWidth: 160,
     agendaMaxEventWidth: 100,
@@ -28,7 +28,7 @@ export default {
     yearMaxEvents: 99,
 
     eventItemHeight: 22,
-    eventItemLineHeight: 24,
+    eventItemLineHeight: 40,
     dayStartFrom: 0,
     dayStopTo: 23,
     defaultEventBgColor: '#80C5F6',
@@ -55,7 +55,7 @@ export default {
     addMorePopoverHeaderFormat: 'MMM D, YYYY dddd',
     eventItemPopoverDateFormat: 'MMM D',
     nonAgendaDayCellHeaderFormat: 'ha',
-    nonAgendaOtherCellHeaderFormat: 'ddd M/D',
+    nonAgendaOtherCellHeaderFormat: 'ddd',
 
     minuteStep: 30,
 

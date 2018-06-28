@@ -27,7 +27,6 @@ class BodyView extends Component {
                     <td key={key} style={style}><div></div></td>
                 )
             });
-
             return (
                 <tr key={item.slotId} style={{height: item.rowHeight}}>
                     {rowCells}

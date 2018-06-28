@@ -575,7 +575,8 @@ export default class SchedulerData {
     }
 
     _createInitRenderData(isEventPerspective, eventGroups, resources, headers) {
-
+        let isFirst = false;
+        let countFirst =0;
         return isEventPerspective ? eventGroups.map((eventGroup) => {
             let headerEvents = headers.map((header) => {
                 return this._createInitHeaderEvents(header);
@@ -588,6 +589,13 @@ export default class SchedulerData {
                 headerItems: headerEvents
             };
         }) : resources.map((resource) => {
+
+            if(resource.type == 'booking' && countFirst == 0) {
+                countFirst++;
+                isFirst = true;
+            } else {
+                isFirst = false;
+            }
             let headerEvents = headers.map((header) => {
                 return this._createInitHeaderEvents(header);
             });
@@ -598,7 +606,8 @@ export default class SchedulerData {
                 color: resource.color,
                 rowHeight: 0,
                 headerItems: headerEvents,
-                type: resource.type
+                type: resource.type,
+                isFirstBooking: isFirst
             };
         });
     }

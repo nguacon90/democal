@@ -34,7 +34,7 @@ const DemoData = {
             id: 'r6',
             name: '30L9-1159',
             type: 'car',
-            color: '#fffb2f'
+            color: '#dc8aff'
         },
         {
             id: 'r7',

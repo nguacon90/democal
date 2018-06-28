@@ -176,8 +176,8 @@ class ResourceEvents extends Component {
         let selectedArea = isSelecting ? <SelectedArea {...this.props} left={left} width={width} /> : <div />;
 
         let eventList = [];
-        resourceEvents.headerItems.forEach((headerItem, index) => {
 
+        resourceEvents.headerItems.forEach((headerItem, index) => {
             if (headerItem.count > 0 || headerItem.summary != undefined) {
 
                 let isTop = config.summaryPos === SummaryPos.TopRight || config.summaryPos === SummaryPos.Top || config.summaryPos === SummaryPos.TopLeft;
@@ -245,7 +245,7 @@ class ResourceEvents extends Component {
         });
 
         return (
-            <tr>
+            <tr className={resourceEvents.isFirstBooking ? 'split-booking-row' : ''}>
                 <td style={{width: rowWidth}}>
                     {
                         connectDropTarget(
