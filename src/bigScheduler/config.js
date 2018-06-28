@@ -58,7 +58,10 @@ export default {
     nonAgendaOtherCellHeaderFormat: 'ddd',
 
     minuteStep: 30,
-
+    resourceTypes: {
+        booking: 'booking',
+        car: 'car'
+    },
     views: [
         {viewName: 'Day', viewType: ViewTypes.Day, showAgenda: false, isEventPerspective: false},
         {viewName: 'Week', viewType: ViewTypes.Week, showAgenda: false, isEventPerspective: false},

@@ -354,11 +354,30 @@ export default class SchedulerData {
         this._attachEvent(event);
         this._createRenderData();
     }
+    validateMoveEvent(event, newSlotId, newSlotName, newStart, newEnd){
+        let newResource = this.getResourceById(newSlotId);
+        if(!this._isBookingEvent(event) && newResource.type == config.resourceTypes.booking) {
+            throw 'Thay đổi điều xe không hợp lệ';
+        }
 
+        if(!moment(event.start).isSame(moment(newStart)) &&
+            (!this._isBookingEvent(event) || newResource.type != config.resourceTypes.booking)) {
+            throw 'Bạn không thể điều xe: Ngày xe chạy khác ngày đặt xe';
+        }
+
+    }
+
+    isChangeBookingEvent(event, newSlotId, newSlotName, newStart, newEnd){
+        let newResource = this.getResourceById(newSlotId);
+        if(this._isBookingEvent(event) && newResource.type == config.resourceTypes.booking) {
+            return true;
+        }
+
+        return false;
+    }
     moveEvent(event, newSlotId, newSlotName, newStart, newEnd){
         let newResource = this.getResourceById(newSlotId);
-
-        if(this._isBookingEvent(event)) {
+        if(this._isBookingEvent(event) && newResource.type == config.resourceTypes.car) {
             event.resizable = false;
             let cloneEvent = Object.assign({}, event);
             cloneEvent.groupId = newSlotId;
@@ -397,7 +416,7 @@ export default class SchedulerData {
 
     _isBookingEvent(event) {
         let resource = this.getResourceById(event.resourceId);
-        if(resource && resource.type == 'booking') {
+        if(resource && resource.type == config.resourceTypes.booking) {
             return true;
         }
 
@@ -432,7 +451,7 @@ export default class SchedulerData {
         this.events.map((e, index) => {
             if(e.id == event.id) {
                 let resource = self.getResourceById(e.resourceId);
-                if(resource && resource.type === 'booking') {
+                if(resource && resource.type === config.resourceTypes.booking) {
                     e.movable = true;
                     e.resizable = true;
                     return false;
@@ -590,7 +609,7 @@ export default class SchedulerData {
             };
         }) : resources.map((resource) => {
 
-            if(resource.type == 'booking' && countFirst == 0) {
+            if(resource.type == config.resourceTypes.booking && countFirst == 0) {
                 countFirst++;
                 isFirst = true;
             } else {

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {PropTypes} from 'prop-types'
+import Config from '../bigScheduler/config'
 
 class ResourceView extends Component {
 
@@ -24,7 +25,7 @@ class ResourceView extends Component {
         let isFirstItem = true;
 
         const splitRowCssClass = (item) => {
-            if(item.type === 'booking' && isFirstItem) {
+            if(item.type === Config.resourceTypes.booking && isFirstItem) {
                 isFirstItem = false;
                 return "split-booking-row"
             }

@@ -255,7 +255,17 @@ class App extends Component {
     }
 
     moveEvent = (schedulerData, event, slotId, slotName, start, end) => {
-        if (window.confirm(`Do you want to move the event? {eventId: ${event.id}, eventTitle: ${event.title}, newSlotId: ${slotId}, newSlotName: ${slotName}, newStart: ${start}, newEnd: ${end}`)) {
+        try {
+            schedulerData.validateMoveEvent(event, slotId, slotName, start, end);
+        } catch (e) {
+            alert(e);
+            return false;
+        }
+        let confirmMessage  = `Bạn có muốn điều xe: ${slotName} chạy tuyến: ${event.title}?`;
+        if(schedulerData.isChangeBookingEvent(event, slotId, slotName, start, end)) {
+            confirmMessage = `Bạn có muốn thay đổi lịch đặt xe chạy tuyến: ${event.title}?`;
+        }
+        if (window.confirm(confirmMessage)) {
             schedulerData.moveEvent(event, slotId, slotName, start, end);
             this.setState({
                 viewModel: schedulerData
